@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Search from './search'
 import CopyHelper from './copy'
 import { lookUpchain, lookupScanner } from '../utils/getChainId'
-
+import { Globe, Twitter } from 'react-feather'
 import { toChecksumAddress } from 'ethereumjs-util'
 import FilterResults from 'react-filter-search'
 
@@ -117,7 +117,10 @@ export const ListItem = memo(function ListItem({ token }) {
         </span>
       </TokenInfo>
       <Chain>{lookUpchain(token.chainId)}</Chain>
-      <span>{token.symbol}</span>
+      <div>
+        <Globe size={'14'} stroke="black" />&nbsp;&nbsp;&nbsp;
+        <Twitter size={'14'} stroke="black" />
+      </div>
       <TokenTagWrapper className="hide-small">
         {token?.tags?.length > 0 && (
           <>
@@ -203,7 +206,7 @@ export default function Tokens({ tokens }) {
         <ListTitle>
           <p className="hide-small">Name</p>
           <p className="hide-small">Chain</p>
-          <p className="hide-small">Symbol</p>
+          <p className="hide-small"></p>
           <p className="hide-small">Tags</p>
           <p className="hide-small" style={{ textAlign: 'right' }}>
             Address
